@@ -25,7 +25,7 @@
       <!-- fotter end -->
     </div>
   </div>
-</template> 
+</template>
 <script>
 import { mapGetters, mapActions } from "vuex";
 
@@ -45,4 +45,4 @@ export default {
 
 
 <style lang="scss" scoped>
-</style> 
+</style>

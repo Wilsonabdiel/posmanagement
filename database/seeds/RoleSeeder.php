@@ -2,8 +2,6 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\Models\Role;
-use App\Models\Permission;
 
 class RoleSeeder extends Seeder
 {
@@ -14,15 +12,20 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        // Insert some stuff
-	    DB::table('roles')->insert(
-            array([
-                'id'    => 1,
-                'name'  => 'Owner',
-                'label' => 'Owner',
-                'status' => 1,
-                'description' => 'Owner',
-            ])
-        );
+        $roles = [
+            'CEO',
+            'Supervisor',
+            'Manager',
+            'Ride Officer',
+        ];
+
+        foreach ($roles as $role) {
+            DB::table('roles')->insert([
+                'name' => $role,
+                'label' => ucfirst($role),
+                'description' => "The $role role",
+            ]);
+        }
     }
 }
+

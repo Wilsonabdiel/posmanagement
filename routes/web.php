@@ -26,7 +26,7 @@ Route::get('password/find/{token}', 'PasswordResetController@find');
 //------------------------------------------------------------------\\
 
 $installed = Storage::disk('public')->exists('installed');
-
+$installed = true;
 if ($installed === false) {
     Route::get('/setup', [
         'uses' => 'SetupController@viewCheck',
@@ -101,6 +101,8 @@ Route::group(['middleware' => ['auth', 'Is_Active']], function () {
 
     Route::get('/login', function () {
         $installed = Storage::disk('public')->exists('installed');
+        $installed = true;
+
         if ($installed === false) {
             return redirect('/setup');
         } else {
@@ -112,6 +114,7 @@ Route::group(['middleware' => ['auth', 'Is_Active']], function () {
     Route::get('/{vue?}',
         function () {
             $installed = Storage::disk('public')->exists('installed');
+            $installed = true;
 
             if ($installed === false) {
                 return redirect('/setup');
@@ -122,7 +125,7 @@ Route::group(['middleware' => ['auth', 'Is_Active']], function () {
 
 
     });
-    
+
     Auth::routes([
         'register' => false,
     ]);

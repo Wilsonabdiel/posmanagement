@@ -221,7 +221,7 @@
     </div>
 
   </div>
-  
+
   <!-- ============ Body content End ============= -->
 </template>
 <script>
@@ -667,6 +667,8 @@ export default {
   async mounted() {
     await this.all_dashboard_data();
     this.GetMonth();
+    console.log(currentUserPermissions + "Hello");
   }
 };
+
 </script>
